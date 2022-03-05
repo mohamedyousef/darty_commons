@@ -6,7 +6,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
-import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// A Calculator.
@@ -17,8 +16,7 @@ extension StringAnko on String {
   }
 
   void logError({String? className}) {
-    Logger(className != null ? className : 'StringAnko')
-        .log(Level.SEVERE, this);
+    Logger(className != null ? className : 'StringAnko').log(Level.SEVERE, this);
   }
 
 //? String to Int
@@ -46,18 +44,18 @@ extension StringAnko on String {
   void showSnackBar(
     BuildContext context, {
     Duration duration = const Duration(milliseconds: 500),
-        TextStyle? style,
-        Color? backgroundColor,
-        TextDirection? direction,
+    TextStyle? style,
+    Color? backgroundColor,
+    TextDirection? direction,
   }) {
     try {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          backgroundColor: backgroundColor?? Colors.white,
+          backgroundColor: backgroundColor ?? Colors.white,
           content: Text(
             this,
             textDirection: direction,
-            style: style ??TextStyle(color: Colors.white),
+            style: style ?? TextStyle(color: Colors.white),
           ),
           duration: duration,
         ),
@@ -66,12 +64,13 @@ extension StringAnko on String {
       Logger('SnackBar').severe(e);
     }
   }
+
   void showErrorSnackBar(
-      BuildContext context, {
-        Duration duration = const Duration(milliseconds: 500),
-        Color? backgroundColor,
-        TextDirection? direction,
-      }) {
+    BuildContext context, {
+    Duration duration = const Duration(milliseconds: 500),
+    Color? backgroundColor,
+    TextDirection? direction,
+  }) {
     try {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -79,7 +78,7 @@ extension StringAnko on String {
           content: Text(
             this,
             textDirection: direction,
-            style:TextStyle(color: Colors.red),
+            style: TextStyle(color: Colors.red),
           ),
           duration: duration,
         ),
@@ -95,11 +94,6 @@ extension StringAnko on String {
     List<int> imageBytes = image.readAsBytesSync();
     Logger('toBase64').info(imageBytes);
     return base64Encode(imageBytes);
-  }
-
-  /// ? Share Passed Text
-  void share({String? subject}) {
-    Share.share(this, subject: subject);
   }
 
   /// ? Send Whats App Message With the passed String as Message Body
@@ -188,20 +182,20 @@ extension FileAnko on File {
 extension ContextAnko on BuildContext {
   ///? Show SnackBar from build context
   void showSnackBar(
-      String text, {
-        Duration duration = const Duration(milliseconds: 500),
-        TextStyle? style,
-        Color? backgroundColor,
-        TextDirection? direction,
-      }) {
+    String text, {
+    Duration duration = const Duration(milliseconds: 500),
+    TextStyle? style,
+    Color? backgroundColor,
+    TextDirection? direction,
+  }) {
     try {
       ScaffoldMessenger.of(this).showSnackBar(
         SnackBar(
-          backgroundColor: backgroundColor?? Colors.white,
+          backgroundColor: backgroundColor ?? Colors.white,
           content: Text(
             text,
             textDirection: direction,
-            style: style ??TextStyle(color: Colors.white),
+            style: style ?? TextStyle(color: Colors.white),
           ),
           duration: duration,
         ),
@@ -210,12 +204,13 @@ extension ContextAnko on BuildContext {
       Logger('SnackBar').severe(e);
     }
   }
+
   void showErrorSnackBar(
-     String text, {
-        Duration duration = const Duration(milliseconds: 500),
-        Color? backgroundColor,
-        TextDirection? direction,
-      }) {
+    String text, {
+    Duration duration = const Duration(milliseconds: 500),
+    Color? backgroundColor,
+    TextDirection? direction,
+  }) {
     try {
       ScaffoldMessenger.of(this).showSnackBar(
         SnackBar(
@@ -223,7 +218,7 @@ extension ContextAnko on BuildContext {
           content: Text(
             text,
             textDirection: direction,
-            style:TextStyle(color: Colors.red),
+            style: TextStyle(color: Colors.red),
           ),
           duration: duration,
         ),
@@ -238,8 +233,7 @@ extension ContextAnko on BuildContext {
   }
 
   logError(String message, {String? className}) {
-    Logger(className != null ? className : 'StringAnko')
-        .log(Level.SEVERE, this);
+    Logger(className != null ? className : 'StringAnko').log(Level.SEVERE, this);
   }
 }
 
@@ -265,25 +259,21 @@ extension IntExtension on int {
   }
 
   void log({String? className}) {
-    Logger(className != null ? className : 'IntAnko')
-        .log(Level.INFO, this.toString());
+    Logger(className != null ? className : 'IntAnko').log(Level.INFO, this.toString());
   }
 
   void logError({String? className}) {
-    Logger(className != null ? className : 'IntAnko')
-        .log(Level.SEVERE, this.toString());
+    Logger(className != null ? className : 'IntAnko').log(Level.SEVERE, this.toString());
   }
 }
 
 extension DoubleAnko on double {
   void log({String? className}) {
-    Logger(className != null ? className : 'DoubleAnko')
-        .log(Level.INFO, this.toString());
+    Logger(className != null ? className : 'DoubleAnko').log(Level.INFO, this.toString());
   }
 
   void logError({String? className}) {
-    Logger(className != null ? className : 'DoubleAnko')
-        .log(Level.SEVERE, this.toString());
+    Logger(className != null ? className : 'DoubleAnko').log(Level.SEVERE, this.toString());
   }
 }
 
